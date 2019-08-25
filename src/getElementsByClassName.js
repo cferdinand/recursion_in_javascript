@@ -7,5 +7,19 @@
 
 
 var getElementsByClassName = function(className) {
-  // Your code here
-};
+  var elementsClasses = [];
+
+  var elements = function(element) {
+    if (element.classList && element.classList.contains(className)) {
+      elementsClasses.push(element);
+    }
+    if (element.childNodes) {
+      element.childNodes.forEach(function(item) {
+        elements(item);
+      });
+    }
+  }
+  elements(document.body);
+
+  return elementsClasses;
+}

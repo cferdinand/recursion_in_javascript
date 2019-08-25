@@ -17,5 +17,11 @@
 
 
 var sumArray = function(arr) {
-  // Your code here
+  var newArray = arr.slice();
+  if(newArray.length <= 0) {
+    return 0;
+  } else {
+    return (newArray.pop() + sumArray(newArray))
+  }
 };
+
